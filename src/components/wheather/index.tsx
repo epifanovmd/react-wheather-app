@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "./styles.scss";
 
 interface IProps {
     cityName: string | null;
@@ -36,13 +37,13 @@ export class Wheather extends React.Component<IProps> {
         };
 
         return (
-            <div>
-                <h2>Погода в городе: { cityName }, { country }</h2>
-                <p><b>Температура:</b> { temp } ℃</p>
-                <p><b>Влажность:</b> { clouds } %</p>
+            <div className={styles["wheather-container"]}>
+                <h2 className={styles["wheather-header"]}>Погода в городе: { cityName }, { country }</h2>
+                <p className={styles["wheather-param"]}><b>Температура:</b> { temp } ℃</p>
+                <p className={styles["wheather-param"]}><b>Влажность:</b> { clouds } %</p>
                 <br/>
-                <p><b>Направление ветра:</b> {windDirection(windDeg)}</p>
-                <p><b>Скорость ветра:</b> { windSpeed } метр. в секунду</p>
+                <p className={styles["wheather-param"]}><b>Направление ветра:</b> {windDirection(windDeg)}</p>
+                <p className={styles["wheather-param"]}><b>Скорость ветра:</b> { windSpeed } м/с</p>
             </div>
         );
     }

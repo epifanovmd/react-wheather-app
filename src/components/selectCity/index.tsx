@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "./styles.scss";
 
 interface IProps {
     // tslint:disable-next-line:prefer-method-signature
@@ -27,8 +28,18 @@ export class SelectCity extends React.Component<IProps> {
     public render() {
         return (
             <div>
-                <input onKeyDown={this.onKeyDownOnInput} ref={(input) => this.input = input} type="text"/>
-                <button onClick={this.onSelectCity}>Загрузить</button>
+                <input
+                    className={styles["select__input"]}
+                    onKeyDown={this.onKeyDownOnInput}
+                    ref={(input) => this.input = input}
+                    type="text"
+                />
+                <button
+                    className={styles["select__button"]}
+                    onClick={this.onSelectCity}
+                >
+                    Загрузить
+                </button>
             </div>
         );
     }
