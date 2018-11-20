@@ -38,7 +38,6 @@ export class App extends React.Component<TAppProps> {
                 return weatherSys.country;
             }
 
-            // tslint:disable-next-line:no-null-keyword
             return "";
         };
 
@@ -62,7 +61,6 @@ export class App extends React.Component<TAppProps> {
                 return (temperature.toFixed(2));
             }
 
-            // tslint:disable-next-line:no-null-keyword
             return "";
         };
 

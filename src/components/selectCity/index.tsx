@@ -8,16 +8,26 @@ interface IProps {
 export class SelectCity extends React.Component<IProps> {
     // tslint:disable-next-line:no-null-keyword
     private input: HTMLInputElement | null = null;
-    private onSelectCity = () => {
+    private readonly onSelectCity = () => {
         if (this.input !== null && this.input.value.length !== 0) {
             this.props.selectCity(this.input.value);
         }
     }
-    public render() {
 
+    private readonly onKeyDownOnInput = (event: React.KeyboardEvent) => {
+        const ENTER_KEY_CODE = 13;
+
+        if (event.keyCode === ENTER_KEY_CODE) {
+            if (this.input !== null && this.input.value.length !== 0) {
+                this.props.selectCity(this.input.value);
+            }
+        }
+    }
+
+    public render() {
         return (
             <div>
-                <input ref={(input) => this.input = input} type="text"/>
+                <input onKeyDown={this.onKeyDownOnInput} ref={(input) => this.input = input} type="text"/>
                 <button onClick={this.onSelectCity}>Загрузить</button>
             </div>
         );
